@@ -33,7 +33,7 @@
     },
     "vmCount": {
       "type": "int",
-      "defaultValue": "2",
+      "defaultValue": 2,
       "minValue": 2,
       "maxValue": 3,
       "metadata": {
