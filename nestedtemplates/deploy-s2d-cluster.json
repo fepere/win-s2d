@@ -124,7 +124,7 @@
     "storageNamePrefix": "sdc305608prodcls01",
     "witnessStorageName": "sdc305608prodclw01",
     "witnessStorageType": "Standard_LRS",
-    "vmNamePrefix": "[concat(parameters('namePrefix'),copyindex(1))]",
+    "vmNamePrefix": "[concat(parameters('namePrefix'))]",
     "vmAvailabilitySetName": "sdc305608w002-avst",
     "clusterName": "clsdc305608w000-c12",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
@@ -172,7 +172,7 @@
       "kind": "Storage"
     },
     {
-      "name": "[concat(variables('vmNamePrefix'),'-vnic')]",
+      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'-vnic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
@@ -316,7 +316,7 @@
             "clusterName": "[variables('clusterName')]",
             "sofsName": "[parameters('sofsName')]",
             "shareName": "[parameters('shareName')]",
-            "vmNamePrefix": "[variables('vmNamePrefix')]",
+            "vmNamePrefix": "[concat(variables('vmNamePrefix'),copyindex(1))]",
             "vmCount": "[parameters('vmCount')]",
             "vmDiskSize": "[parameters('vmDiskSize')]",
             "witnessStorageName": "[variables('witnessStorageName')]",
