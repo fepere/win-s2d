@@ -6,7 +6,7 @@
       "defaultValue": "clsdc305608w00",
       "type": "string",
       "minLength": 3,
-      "maxLength": 8,
+      "maxLength": 15,
       "metadata": {
         "description": "Naming prefix for each new resource created. 3-char min, 8-char max, lowercase alphanumeric"
       }
