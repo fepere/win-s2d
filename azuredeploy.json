@@ -119,7 +119,7 @@
       "metadata": {
         "description": "Location of resources that the script is dependent on such as linked templates and DSC modules"
       },
-      "defaultValue": "https://raw.githubusercontent.com/fepere/master/win-s2d"
+      "defaultValue": "https://raw.githubusercontent.com/fepere/win-s2d/master"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
