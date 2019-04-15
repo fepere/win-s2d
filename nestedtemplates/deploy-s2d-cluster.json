@@ -124,7 +124,7 @@
     "storageNamePrefix": "sdc305608prodcls01",
     "witnessStorageName": "sdc305608prodclw01",
     "witnessStorageType": "Standard_LRS",
-    "vmNamePrefix": "[concat(parameters('namePrefix'))]",
+    "vmNamePrefix": "[parameters('namePrefix')]",
     "vmAvailabilitySetName": "sdc305608w002-avst",
     "clusterName": "clsdc305608w000-c12",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
@@ -159,7 +159,7 @@
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageNamePrefix')]",
+      "name": "[concat(variables('storageNamePrefix'),copyindex())]",
       "apiVersion": "2016-01-01",
       "copy": {
         "name": "storageAccountLoop",
@@ -172,7 +172,7 @@
       "kind": "Storage"
     },
     {
-      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'-vnic')]",
+      "name": "[concat(variables('vmNamePrefix'), copyindex(),'-vnic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
@@ -201,7 +201,7 @@
         "name": "virtualMachineLoop",
         "count": "[parameters('vmCount')]"
       },
-      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'-newVM')]",
+      "name": "[concat(variables('vmNamePrefix'),copyindex(),'-newVM')]",
       "dependsOn": [
         "storageAccountLoop",
         "nicLoop",
@@ -214,10 +214,10 @@
         },
         "parameters": {
           "vmName": {
-            "value": "[concat(variables('vmNamePrefix'), copyindex(1))]"
+            "value": "[concat(variables('vmNamePrefix'), copyindex())]"
           },
           "storageAccountUri": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix')),variables('apiVersionStorage')).primaryEndpoints.blob]"
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix')copyIndex()),variables('apiVersionStorage')).primaryEndpoints.blob]"
           },
           "vmAvailabilitySetName": {
             "value": "[variables('vmAvailabilitySetName')]"
