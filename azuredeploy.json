@@ -3,7 +3,6 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "namePrefix": {
-      "defaultValue": "clsdc305608w00",
       "type": "string",
       "minLength": 3,
       "maxLength": 15,
@@ -120,7 +119,7 @@
       "metadata": {
         "description": "Location of resources that the script is dependent on such as linked templates and DSC modules"
       },
-      "defaultValue": "https://raw.githubusercontent.com/fepere/win-s2d/master"
+      "defaultValue": "https://raw.githubusercontent.com/fepere/master/win-s2d"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
