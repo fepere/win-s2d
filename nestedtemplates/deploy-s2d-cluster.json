@@ -121,8 +121,8 @@
   },
   "variables": {
     "apiVersionStorage": "2016-01-01",
-    "storageNamePrefix": "[concat(parameters('namePrefix'),substring(uniqueString(resourceGroup().id)0,1)),'vm')]",
-    "witnessStorageName": "[concat(parameters('namePrefix'),substring(uniqueString(resourceGroup().id),0,1))'cw')]",
+    "storageNamePrefix": "[concat(parameters('namePrefix'),substring(uniqueString(resourceGroup().id)0,2)),'vm')]",
+    "witnessStorageName": "[concat(parameters('namePrefix'),substring(uniqueString(resourceGroup().id),0,2))'cw')]",
     "witnessStorageType": "Standard_LRS",
 
     "vmNamePrefix": "[parameters('namePrefix')]",
