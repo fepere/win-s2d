@@ -121,9 +121,10 @@
   },
   "variables": {
     "apiVersionStorage": "2016-01-01",
-    "storageNamePrefix": "sdc305608prodcls01",
-    "witnessStorageName": "sdc305608prodclw01",
+    "storageNamePrefix": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'vm')]",
+    "witnessStorageName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'cw')]",
     "witnessStorageType": "Standard_LRS",
+
     "vmNamePrefix": "[parameters('namePrefix')]",
     "vmAvailabilitySetName": "sdc305608w002-avst",
     "clusterName": "clsdc305608w000-c12",
@@ -172,7 +173,7 @@
       "kind": "Storage"
     },
     {
-      "name": "[concat(variables('vmNamePrefix'), copyindex(),'-vnic')]",
+      "name": "[concat(variables('vmNamePrefix'), copyindex(), '-nic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
@@ -217,7 +218,7 @@
             "value": "[concat(variables('vmNamePrefix'), copyindex())]"
           },
           "storageAccountUri": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix')copyIndex()),variables('apiVersionStorage')).primaryEndpoints.blob]"
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix'),copyIndex()),variables('apiVersionStorage')).primaryEndpoints.blob]"
           },
           "vmAvailabilitySetName": {
             "value": "[variables('vmAvailabilitySetName')]"
@@ -316,7 +317,7 @@
             "clusterName": "[variables('clusterName')]",
             "sofsName": "[parameters('sofsName')]",
             "shareName": "[parameters('shareName')]",
-            "vmNamePrefix": "[concat(variables('vmNamePrefix'),copyindex(1))]",
+            "vmNamePrefix": "[variables('vmNamePrefix')]",
             "vmCount": "[parameters('vmCount')]",
             "vmDiskSize": "[parameters('vmDiskSize')]",
             "witnessStorageName": "[variables('witnessStorageName')]",
