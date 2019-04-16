@@ -122,12 +122,12 @@
   "variables": {
     "apiVersionStorage": "2016-01-01",
     "storageNamePrefix": "[concat('sdc35608',uniqueString(resourceGroup().id),'vm')]",
-    "witnessStorageName": "[concat('sdc35608',uniqueString(resourceGroup().id),'cw')]",
+    "witnessStorageName": "[concat('sdc35608',uniqueString(resourceGroup().id),'012')]",
     "witnessStorageType": "Standard_LRS",
 
     "vmNamePrefix": "[parameters('namePrefix')]",
     "vmAvailabilitySetName": "sdc305608w002-avst",
-    "clusterName": "clsdc305608wc12",
+    "clusterName": "clsdc305608w012",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/prep-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepFunction": "PrepS2D.ps1\\PrepS2D",
@@ -160,7 +160,7 @@
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "name": "[concat(variables('storageNamePrefix'),copyindex())]",
+      "name": "[concat(variables('storageNamePrefix'),copyindex(1))]",
       "apiVersion": "2016-01-01",
       "copy": {
         "name": "storageAccountLoop",
@@ -173,7 +173,7 @@
       "kind": "Storage"
     },
     {
-      "name": "[concat(variables('vmNamePrefix'), copyindex(), '-vnic')]",
+      "name": "[concat(variables('vmNamePrefix'), copyindex(1), '-vnic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
@@ -202,7 +202,7 @@
         "name": "virtualMachineLoop",
         "count": "[parameters('vmCount')]"
       },
-      "name": "[concat(variables('vmNamePrefix'),copyindex(),'-newVM')]",
+      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'-newVM')]",
       "dependsOn": [
         "storageAccountLoop",
         "nicLoop",
@@ -215,10 +215,10 @@
         },
         "parameters": {
           "vmName": {
-            "value": "[concat(variables('vmNamePrefix'), copyindex())]"
+            "value": "[concat(variables('vmNamePrefix'), copyindex(1))]"
           },
           "storageAccountUri": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix'),copyIndex()),variables('apiVersionStorage')).primaryEndpoints.blob]"
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix'),copyIndex(1)),variables('apiVersionStorage')).primaryEndpoints.blob]"
           },
           "vmAvailabilitySetName": {
             "value": "[variables('vmAvailabilitySetName')]"
@@ -296,7 +296,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),'0/s2dConfig')]",
+      "name": "[concat(variables('vmNamePrefix'),'2/s2dConfig')]",
       "apiVersion": "2015-06-15",
       "location": "[parameters('location')]",
       "dependsOn": [

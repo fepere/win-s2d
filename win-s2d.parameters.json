@@ -14,7 +14,7 @@
     "existingVirtualNetworkRGName": { "value": "WIN-AD-RG" },
     "existingVirtualNetworkName": { "value": "adVNET" },
     "existingSubnetName": { "value": "datasubnet" },
-    "sofsName": { "value": "fs02" },
+    "sofsName": { "value": "clsdc305608w000-fs12" },
     "shareName": { "value": "data" }
   }
 }
