@@ -127,7 +127,7 @@
 
     "vmNamePrefix": "[parameters('namePrefix')]",
     "vmAvailabilitySetName": "sdc305608w002-avst",
-    "clusterName": "clsdc305608w000-c12",
+    "clusterName": "clsdc305608wc12",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/prep-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepFunction": "PrepS2D.ps1\\PrepS2D",
