@@ -3,12 +3,18 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "namePrefix": { "value": "clsdc305608w00" },
+    "storageAccountType": { "value": "Premium_LRS" },
+    "vmSize": { "value": "Standard_F4s_v2" },
     "vmCount": { "value": 2 },
+    "vmDiskSize": { "value": 128 },
+    "vmDiskCount": { "value": 2 },
     "existingDomainName": { "value": "next.loc" },
     "adminUsername": { "value": "adAdministrator" },
     "adminPassword": { "value": "Passw0rd12345" },
     "existingVirtualNetworkRGName": { "value": "WIN-AD-RG" },
     "existingVirtualNetworkName": { "value": "adVNET" },
-    "existingSubnetName": { "value": "datasubnet" }
+    "existingSubnetName": { "value": "datasubnet" },
+    "sofsName": { "value": "fs02" },
+    "shareName": { "value": "data" }
   }
 }

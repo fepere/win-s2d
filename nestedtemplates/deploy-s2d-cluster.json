@@ -173,7 +173,7 @@
       "kind": "Storage"
     },
     {
-      "name": "[concat(variables('vmNamePrefix'), copyindex(), '-nic')]",
+      "name": "[concat(variables('vmNamePrefix'), copyindex(), '-vnic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
