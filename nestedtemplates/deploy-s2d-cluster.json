@@ -261,7 +261,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),copyindex(2),'/s2dPrep')]",
+      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'/s2dPrep')]",
       "apiVersion": "2015-06-15",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -296,7 +296,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),'1/s2dConfig')]",
+      "name": "[concat(variables('vmNamePrefix'),'0/s2dConfig')]",
       "apiVersion": "2015-06-15",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -321,7 +321,7 @@
             "vmCount": "[parameters('vmCount')]",
             "vmDiskSize": "[parameters('vmDiskSize')]",
             "witnessStorageName": "[variables('witnessStorageName')]",
-            "witnessStorageEndpoint": "[replace(split(reference(concat('Microsoft.Storage/storageAccounts/', variables('witnessStorageName'))).primaryEndpoints.blob, 'blob.')[2], '/', '')]",
+            "witnessStorageEndpoint": "[replace(split(reference(concat('Microsoft.Storage/storageAccounts/', variables('witnessStorageName'))).primaryEndpoints.blob, 'blob.')[1], '/', '')]",
             "witnessStorageKey": {
               "userName": "PLACEHOLDER-DO-NOT-USE",
               "password": "PrivateSettingsRef:witnessStorageKey"
