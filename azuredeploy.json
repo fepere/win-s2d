@@ -12,7 +12,6 @@
     },
     "storageAccountType": {
       "type": "string",
-      "defaultValue": "Premium_LRS",
       "allowedValues": [
         "Standard_LRS",
         "Standard_GRS",
@@ -25,14 +24,12 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_F4s_v2",
       "metadata": {
         "description": "Size of the S2D VMs to be created"
       }
     },
     "vmCount": {
       "type": "int",
-      "defaultValue": 2,
       "minValue": 2,
       "maxValue": 3,
       "metadata": {
@@ -41,7 +38,6 @@
     },
     "vmDiskSize": {
       "type": "int",
-      "defaultValue": 128,
       "minValue": 128,
       "maxValue": 1023,
       "metadata": {
@@ -50,7 +46,6 @@
     },
     "vmDiskCount": {
       "type": "int",
-      "defaultValue": 2,
       "minValue": 2,
       "maxValue": 32,
       "metadata": {
@@ -59,21 +54,18 @@
     },
     "existingDomainName": {
       "type": "string",
-      "defaultValue": "next.loc",
       "metadata": {
         "description": "DNS domain name for existing Active Directory domain"
       }
     },
     "adminUsername": {
       "type": "string",
-      "defaultValue": "s_sdc1_AZURE",
       "metadata": {
         "description": "Name of the Administrator of the existing Active Directory Domain"
       }
     },
     "adminPassword": {
       "type": "securestring",
-      "defaultValue": "**************",
       "minLength": 12,
       "metadata": {
         "description": "Password for the Administrator account of the existing Active Directory Domain"
@@ -81,35 +73,30 @@
     },
     "existingVirtualNetworkRGName": {
       "type": "string",
-      "defaultValue": "sdc3-net-intranet-sensitive-rg",
       "metadata": {
         "description": "Resource Group Name for the existing VNET."
       }
     },
     "existingVirtualNetworkName": {
       "type": "string",
-      "defaultValue": "prod-intranet-sensitive-vnet",
       "metadata": {
         "description": "Name of the existing VNET."
       }
     },
     "existingSubnetName": {
       "type": "string",
-      "defaultValue": "sensitive-app-subnet",
       "metadata": {
         "description": "Name of the existing subnet in the existing VNET to which the S2D VMs should be deployed"
       }
     },
     "sofsName": {
       "type": "string",
-      "defaultValue": "clsdc305608w000-fs12",
       "metadata": {
         "description": "Name of clustered Scale-Out File Server role"
       }
     },
     "shareName": {
       "type": "string",
-      "defaultValue": "data",
       "metadata": {
         "description": "Name of shared data folder on clustered Scale-Out File Server role"
       }
