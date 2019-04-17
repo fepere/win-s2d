@@ -202,7 +202,7 @@
         "name": "virtualMachineLoop",
         "count": "[parameters('vmCount')]"
       },
-      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'-newVM')]",
+      "name": "[concat(variables('vmNamePrefix'),copyindex(),'-newVM')]",
       "dependsOn": [
         "storageAccountLoop",
         "nicLoop",
