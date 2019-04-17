@@ -202,7 +202,7 @@
         "name": "virtualMachineLoop",
         "count": "[parameters('vmCount')]"
       },
-      "name": "[concat(variables('vmNamePrefix'),copyindex(),'-newVM')]",
+      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'-newVM')]",
       "dependsOn": [
         "storageAccountLoop",
         "nicLoop",
@@ -215,7 +215,7 @@
         },
         "parameters": {
           "vmName": {
-            "value": "[concat(variables('vmNamePrefix'), copyindex())]"
+            "value": "[concat(variables('vmNamePrefix'), copyindex(1))]"
           },
           "storageAccountUri": {
             "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix'),copyIndex()),variables('apiVersionStorage')).primaryEndpoints.blob]"
