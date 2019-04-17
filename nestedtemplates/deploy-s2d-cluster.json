@@ -215,10 +215,10 @@
         },
         "parameters": {
           "vmName": {
-            "value": "[concat(variables('vmNamePrefix'), copyindex(1))]"
+            "value": "[concat(variables('vmNamePrefix'), copyindex())]"
           },
           "storageAccountUri": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix'),copyIndex(1)),variables('apiVersionStorage')).primaryEndpoints.blob]"
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix'),copyIndex()),variables('apiVersionStorage')).primaryEndpoints.blob]"
           },
           "vmAvailabilitySetName": {
             "value": "[variables('vmAvailabilitySetName')]"
