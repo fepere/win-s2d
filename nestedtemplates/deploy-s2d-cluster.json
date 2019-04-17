@@ -317,7 +317,7 @@
             "clusterName": "[variables('clusterName')]",
             "sofsName": "[parameters('sofsName')]",
             "shareName": "[parameters('shareName')]",
-            "vmNamePrefix": "[concat(variables('vmNamePrefix'),copyindex(2))]",
+            "vmNamePrefix": "[concat(variables('vmNamePrefix'),'2')]",
             "vmCount": "[parameters('vmCount')]",
             "vmDiskSize": "[parameters('vmDiskSize')]",
             "witnessStorageName": "[variables('witnessStorageName')]",
