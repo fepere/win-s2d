@@ -127,7 +127,7 @@
 
     "vmNamePrefix": "[parameters('namePrefix')]",
     "vmAvailabilitySetName": "sdc305608w002-avst",
-    "clusterName": "clsdc305608w012",
+    "clusterName": "[concat(variables('vmNamePrefix'),'c')]",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/prep-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepFunction": "PrepS2D.ps1\\PrepS2D",
@@ -317,7 +317,7 @@
             "clusterName": "[variables('clusterName')]",
             "sofsName": "[parameters('sofsName')]",
             "shareName": "[parameters('shareName')]",
-            "vmNamePrefix": "[variables('clusterName')]",
+            "vmNamePrefix": "[variables('vmNamePrefix')]",
             "vmCount": "[parameters('vmCount')]",
             "vmDiskSize": "[parameters('vmDiskSize')]",
             "witnessStorageName": "[variables('witnessStorageName')]",
