@@ -296,7 +296,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),'0/s2dConfig')]",
+      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'/s2dPrep')]",
       "apiVersion": "2015-06-15",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -304,6 +304,10 @@
         "virtualMachineExtensionLoop",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('witnessStorageName'))]"
       ],
+      "copy": {
+        "name": "virtualMachineExtensionLoop",
+        "count": "[sub(parameters('vmCount'),1)]"
+      },
       "properties": {
         "publisher": "Microsoft.Powershell",
         "type": "DSC",
