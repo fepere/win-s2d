@@ -267,7 +267,8 @@
         "virtualMachineLoop"
       ],
       "copy": {
-        "name": "virtualMachineExtensionLoop"
+        "name": "virtualMachineExtensionLoop",
+        "count": "[add(parameters('vmCount'),1)]"
       },
       "properties": {
         "publisher": "Microsoft.Powershell",
