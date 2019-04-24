@@ -300,6 +300,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "virtualMachineLoop",
+        "virtualMachineExtensionLoop",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('witnessStorageName'))]"
       ],
       "properties": {
